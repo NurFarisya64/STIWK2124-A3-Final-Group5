@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ````md
 # Accessible Reading List (ARL) — Frontend Integration
 
@@ -234,3 +235,6 @@ http://localhost:4200
 
 This project is developed for educational purposes under STIWK2124 Web Engineering.
 ````
+=======
+# STIWK2124-A3-Final-Group5
+>>>>>>> 24988f860f171d61c52cb5c9989937386bd9b0ac
