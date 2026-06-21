@@ -1,161 +1,407 @@
-**📚 Accessible Reading List (ARL) — Dockerized Full-Stack System**
+# 📚 Accessible Reading List (ARL)
 
-**Course Information**
-**Course:** STIWK2124 Web Engineering
-**Semester:** A252 – Feb 2025/2026
-**Assignment:** Assignment 3 — CLO3: Full-Stack Containerized Deployment Using Docker
-**Lecturer:** Dr. Munya Saleh Saeed Ba Matraf
+## Full-Stack Containerized Web Application Using Docker
 
-**Project Overview**
-Accessible Reading List (ARL) is a full-stack containerized web application developed using Angular, Spring Boot, and MySQL, fully orchestrated using Docker Compose.
+### Course Information
 
-This project extends previous assignments by deploying the entire system as microservices using containers.
+| Item       | Details                                                               |
+| ---------- | --------------------------------------------------------------------- |
+| Course     | STIWK2124 Web Engineering                                             |
+| Semester   | A252 – February 2025/2026                                             |
+| Assignment | Assignment 3 – CLO3: Full-Stack Containerized Deployment Using Docker |
+| Lecturer   | Dr. Munya Saleh Saeed Ba Matraf                                       |
 
-The system allows users to:
+---
 
-* View book list
-* Search books
-* Add books
-* Edit books
+# 📖 Project Overview
+
+Accessible Reading List (ARL) is a modern full-stack web application developed to manage a digital reading list through a user-friendly interface and secure RESTful services.
+
+The system is built using Angular, Spring Boot, and MySQL, and fully deployed using Docker Compose. All application components are containerized and connected through a dedicated Docker network, enabling easy deployment, scalability, portability, and consistent execution across different environments.
+
+The application allows users to efficiently manage books through Create, Read, Update, and Delete (CRUD) operations while ensuring a seamless user experience.
+
+---
+
+# 🎯 System Objectives
+
+The ARL system is designed to:
+
+* Provide a centralized platform for managing reading materials
+* Demonstrate full-stack web application development
+* Implement RESTful API communication between frontend and backend
+* Apply containerization technologies using Docker
+* Enable one-command deployment using Docker Compose
+* Demonstrate microservices architecture principles
+
+---
+
+# ✨ Key Features
+
+### Book Management
+
+* View complete book collection
+* Search books by title or author
+* Add new books
+* Edit existing book information
 * Delete books
-* Validate forms
-* Run the entire system using Docker (one command deployment)
+* Real-time data updates
 
-**Technologies Used**
-**Frontend**
-* Angular (v17+ Standalone Components)
-* TypeScript
-* HTML / CSS
-* Bootstrap
-* Angular HttpClient
-* Nginx (production build server)
-  
-**Backend**
-* Spring Boot (REST API)
-* Spring Data JPA
-* Hibernate
-* MySQL Driver
-  
-**Database**
-* MySQL 8.x (Docker container)
-  
-**DevOps / Tools**
-* Docker
-* Docker Compose
-* Visual Studio Code
-* GitHub
-* Postman
+### User Experience
 
-**System Architecture**
-The system consists of 3 microservices connected via Docker network:
-**1. frontend-service**
-* Angular application
-* Built and served using Nginx
-* Runs on port 80
-**2. backend-service**
-* Spring Boot REST API
-* Runs on port 8080
-* Handles all business logic
-**3. db-service**
-* MySQL database
-* Stores all book records
-* Internal Docker network only (not exposed)
+* Responsive user interface
+* Form validation
+* Error handling and feedback messages
+* Search and filtering functionality
+* Pagination support
 
-**Docker Setup (Prerequisites)**
-Before running this project, ensure:
-* Docker Desktop is installed
+### DevOps Features
+
+* Dockerized deployment
+* Multi-container architecture
+* Persistent database storage
+* Internal Docker networking
+* Nginx reverse proxy
+* One-command application startup
+
+---
+
+# 🛠 Technology Stack
+
+## Frontend Layer
+
+| Technology         | Purpose               |
+| ------------------ | --------------------- |
+| Angular 17+        | Frontend Framework    |
+| TypeScript         | Application Logic     |
+| HTML5              | Structure             |
+| CSS3               | Styling               |
+| Bootstrap 5        | Responsive Design     |
+| Angular HttpClient | API Communication     |
+| Nginx              | Production Web Server |
+
+---
+
+## Backend Layer
+
+| Technology      | Purpose               |
+| --------------- | --------------------- |
+| Spring Boot     | REST API Development  |
+| Spring Data JPA | Data Access Layer     |
+| Hibernate       | ORM Framework         |
+| Maven           | Dependency Management |
+| MySQL Driver    | Database Connectivity |
+
+---
+
+## Database Layer
+
+| Technology    | Purpose                 |
+| ------------- | ----------------------- |
+| MySQL 8.x     | Relational Database     |
+| Docker Volume | Persistent Data Storage |
+
+---
+
+## DevOps & Tools
+
+| Technology         | Purpose                 |
+| ------------------ | ----------------------- |
+| Docker             | Containerization        |
+| Docker Compose     | Service Orchestration   |
+| GitHub             | Version Control         |
+| Postman            | API Testing             |
+| Visual Studio Code | Development Environment |
+
+---
+
+# 🏗 System Architecture
+
+The application follows a three-tier microservices architecture deployed using Docker containers.
+
+Frontend Layer (Angular + Nginx)
+↓
+Backend Layer (Spring Boot REST API)
+↓
+Database Layer (MySQL)
+
+### Services
+
+#### 1. frontend-service
+
+Responsibilities:
+
+* Display user interface
+* Handle user interactions
+* Consume REST APIs
+* Serve Angular production build through Nginx
+
+Port:
+80
+
+---
+
+#### 2. backend-service
+
+Responsibilities:
+
+* Business logic processing
+* REST API endpoints
+* Data validation
+* Database interaction
+
+Port:
+8080
+
+---
+
+#### 3. db-service
+
+Responsibilities:
+
+* Persistent storage
+* Book record management
+
+Port:
+Internal Docker Network Only
+
+---
+
+# 🐳 Docker Deployment
+
+## Prerequisites
+
+Install Docker Desktop:
+
 https://www.docker.com/products/docker-desktop/
-* Docker Compose is enabled (included in Docker Desktop)
+
 Verify installation:
+
+```bash
 docker --version
 docker compose version
+```
 
-**How to Run the Project (Docker Deployment)**
-**1. Clone the Repository**
-git clone <your-repository-link>
+---
+
+# 🚀 Getting Started
+
+## Step 1: Clone Repository
+
+```bash
+git clone <repository-url>
 cd ARL-Library-Project
+```
 
-**2. Build and Run All Services**
+---
+
+## Step 2: Build and Start All Services
+
+```bash
 docker compose up -d --build
+```
 
-* This command will:
+This command will:
+
 * Build Angular frontend image
 * Build Spring Boot backend image
-* Pull MySQL image
+* Download MySQL image
+* Create Docker network
 * Start all containers
-* Connect services using Docker network
+* Configure inter-service communication
 
-**3. Check Running Containers**
+---
+
+## Step 3: Verify Running Containers
+
+```bash
 docker ps
+```
 
-**4. Stop the System**
-docker compose down
+Expected containers:
 
-**Application Access**
-Once containers are running:
-📚 Frontend (Angular UI):
+```text
+frontend-service
+backend-service
+db-service
+```
+
+---
+
+## Step 4: Access Application
+
+### Frontend Application
+
+```text
 http://localhost/books
-🔌 Backend API:
+```
+
+### Backend API
+
+```text
 http://localhost:8080/api/books
-🗄️ MySQL Database:
-Runs internally inside Docker (not exposed)
+```
 
-**API Integration**
-The Angular frontend communicates with Spring Boot backend via:
+### Database
+
+```text
+MySQL Database (Internal Docker Network)
+```
+
+---
+
+# 🔗 API Integration
+
+The Angular frontend communicates with the Spring Boot backend through:
+
+```text
 http://localhost/api/books
+```
 
-**API Methods:**
-* GET → Retrieve books
-* POST → Add books
-* PUT → Update books
-* DELETE → Delete books
+## Supported Endpoints
 
-**Docker Features Implemented**
-* Full microservices containerization
-* Docker Compose orchestration
-* Internal Docker network communication
-* Nginx reverse proxy for frontend routing
-* MySQL persistent volume storage
-* One-command deployment (docker compose up -d --build)
+| Method | Endpoint        | Description              |
+| ------ | --------------- | ------------------------ |
+| GET    | /api/books      | Retrieve all books       |
+| GET    | /api/books/{id} | Retrieve a specific book |
+| POST   | /api/books      | Create a new book        |
+| PUT    | /api/books/{id} | Update book information  |
+| DELETE | /api/books/{id} | Delete a book            |
 
-**Useful Docker Commands**
-**Rebuild frontend only**
-docker compose up --build frontend-service
+---
 
-**Rebuild backend only**
-docker compose up --build backend-service
+# 💾 Data Persistence
 
-**View logs**
-docker compose logs -f
+The MySQL database uses Docker Volumes to ensure data remains available even after containers are stopped or restarted.
 
-**Clean restart system**
-docker compose down && docker compose up -d --build
+Benefits:
 
-**Features Implemented**
-* Full CRUD operations
-* Search & filtering
-* Pagination support
-* Form validation
-* REST API integration
-* Dockerized deployment
-* Nginx reverse proxy setup
-* MySQL persistence with volume
-* Fully isolated microservices architecture
+* Persistent storage
+* Data protection
+* Easy backup and recovery
+* Container-independent database lifecycle
 
-**Group Members**
-* NUR FARISYA BINTI AHMAD SHUKRI	303383
-* NUR JUWANA BINTI MOHD YUNUS	307864
-* SITI NUR IRDINA BINTI AHMAD SUKARDI	307504
-* ALIYYAH SAFIAH BINTI HAZLY	305604
-* NUR SYATHIRAH BINTI MOHD FAIZATUL IZHAM	305766
+---
 
-**How to Run Summary**
-1. Install Docker
-2. Clone project
-3. Run:
+# 🔧 Docker Features Implemented
+
+✅ Full Application Containerization
+
+✅ Multi-Service Docker Compose Setup
+
+✅ Internal Docker Network Communication
+
+✅ Nginx Reverse Proxy Configuration
+
+✅ Persistent MySQL Volume Storage
+
+✅ Automated Service Dependency Management
+
+✅ Environment Variable Configuration
+
+✅ One-Command Deployment
+
+---
+
+# 📋 Useful Docker Commands
+
+### Start Services
+
+```bash
+docker compose up -d
+```
+
+### Rebuild and Start
+
+```bash
 docker compose up -d --build
-4. Open:
-http://localhost/books
+```
 
-**License**
-This project is developed for educational purposes under STIWK2124 Web Engineering.
+### Stop Services
+
+```bash
+docker compose down
+```
+
+### View Running Containers
+
+```bash
+docker ps
+```
+
+### View Logs
+
+```bash
+docker compose logs -f
+```
+
+### Rebuild Frontend Only
+
+```bash
+docker compose up --build frontend-service
+```
+
+### Rebuild Backend Only
+
+```bash
+docker compose up --build backend-service
+```
+
+### Complete Clean Restart
+
+```bash
+docker compose down
+docker compose up -d --build
+```
+
+---
+
+# 📈 Learning Outcomes Achieved
+
+This project demonstrates:
+
+* Full-stack web development
+* RESTful API design
+* Frontend-backend integration
+* Database management
+* Docker containerization
+* Docker Compose orchestration
+* Microservices deployment
+* Production-ready application deployment practices
+
+---
+
+# 👥 Group Members
+
+| Name                                    | Matric Number |
+| --------------------------------------- | ------------- |
+| NUR FARISYA BINTI AHMAD SHUKRI          | 303383        |
+| NUR JUWANA BINTI MOHD YUNUS             | 307864        |
+| SITI NUR IRDINA BINTI AHMAD SUKARDI     | 307504        |
+| ALIYYAH SAFIAH BINTI HAZLY              | 305604        |
+| NUR SYATHIRAH BINTI MOHD FAIZATUL IZHAM | 305766        |
+
+---
+
+# 📌 Quick Start Summary
+
+```bash
+# Clone Repository
+git clone <repository-url>
+
+# Enter Project Directory
+cd ARL-Library-Project
+
+# Build and Run Containers
+docker compose up -d --build
+
+# Open Application
+http://localhost/books
+```
+
+---
+
+# 📄 License
+
+This project was developed solely for educational purposes under the STIWK2124 Web Engineering course at Universiti Utara Malaysia (UUM).
+
