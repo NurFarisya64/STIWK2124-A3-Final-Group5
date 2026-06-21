@@ -86,8 +86,8 @@ docker compose up -d --build
 * Connect services using Docker network
 
 **3. Check Running Containers**
-
 docker ps
+
 **4. Stop the System**
 docker compose down
 
@@ -143,11 +143,11 @@ docker compose down && docker compose up -d --build
 * Fully isolated microservices architecture
 
 **Group Members**
-NUR FARISYA BINTI AHMAD SHUKRI	303383
-NUR JUWANA BINTI MOHD YUNUS	307864
-SITI NUR IRDINA BINTI AHMAD SUKARDI	307504
-ALIYYAH SAFIAH BINTI HAZLY	305604
-NUR SYATHIRAH BINTI MOHD FAIZATUL IZHAM	305766
+* NUR FARISYA BINTI AHMAD SHUKRI	303383
+* NUR JUWANA BINTI MOHD YUNUS	307864
+* SITI NUR IRDINA BINTI AHMAD SUKARDI	307504
+* ALIYYAH SAFIAH BINTI HAZLY	305604
+* NUR SYATHIRAH BINTI MOHD FAIZATUL IZHAM	305766
 
 **How to Run Summary**
 1. Install Docker
