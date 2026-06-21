@@ -1,240 +1,161 @@
-<<<<<<< HEAD
-````md
-# Accessible Reading List (ARL) — Frontend Integration
+**📚 Accessible Reading List (ARL) — Dockerized Full-Stack System**
 
-## Course Information
+**Course Information**
+**Course:** STIWK2124 Web Engineering
+**Semester:** A252 – Feb 2025/2026
+**Assignment:** Assignment 3 — CLO3: Full-Stack Containerized Deployment Using Docker
+**Lecturer:** Dr. Munya Saleh Saeed Ba Matraf
 
-**Course:** STIWK2124 Web Engineering  
-**Semester:** A252 – Feb 2025/2026  
-**Assignment:** Assignment 2 — CLO2: Build the Frontend & Integrate Securely  
-**Lecturer:** Dr. Munya Saleh Saeed Ba Matraf  
+**Project Overview**
+Accessible Reading List (ARL) is a full-stack containerized web application developed using Angular, Spring Boot, and MySQL, fully orchestrated using Docker Compose.
 
----
-
-# Project Overview
-
-Accessible Reading List (ARL) is a web application developed using Angular and Spring Boot.  
-This project focuses on integrating the Angular frontend with the backend REST API developed in Assignment 1.
+This project extends previous assignments by deploying the entire system as microservices using containers.
 
 The system allows users to:
 
-- View book list
-- Search books
-- Add books
-- Edit books
-- Delete books
-- Validate forms
-- Connect securely using Basic Authentication
+* View book list
+* Search books
+* Add books
+* Edit books
+* Delete books
+* Validate forms
+* Run the entire system using Docker (one command deployment)
 
----
+**Technologies Used**
+**Frontend**
+* Angular (v17+ Standalone Components)
+* TypeScript
+* HTML / CSS
+* Bootstrap
+* Angular HttpClient
+* Nginx (production build server)
+  
+**Backend**
+* Spring Boot (REST API)
+* Spring Data JPA
+* Hibernate
+* MySQL Driver
+  
+**Database**
+* MySQL 8.x (Docker container)
+  
+**DevOps / Tools**
+* Docker
+* Docker Compose
+* Visual Studio Code
+* GitHub
+* Postman
 
-# Technologies Used
+**System Architecture**
+The system consists of 3 microservices connected via Docker network:
+**1. frontend-service**
+* Angular application
+* Built and served using Nginx
+* Runs on port 80
+**2. backend-service**
+* Spring Boot REST API
+* Runs on port 8080
+* Handles all business logic
+**3. db-service**
+* MySQL database
+* Stores all book records
+* Internal Docker network only (not exposed)
 
-## Frontend
-- Angular
-- TypeScript
-- HTML
-- CSS
-- Bootstrap
-- Angular HttpClient
+**Docker Setup (Prerequisites)**
+Before running this project, ensure:
+* Docker Desktop is installed
+https://www.docker.com/products/docker-desktop/
+* Docker Compose is enabled (included in Docker Desktop)
+Verify installation:
+docker --version
+docker compose version
 
-## Backend
-- Spring Boot
-- Spring Data JPA
-- MySQL
+**How to Run the Project (Docker Deployment)**
+**1. Clone the Repository**
+git clone <your-repository-link>
+cd ARL-Library-Project
 
-## Tools
-- Visual Studio Code
-- GitHub
-- Postman
+**2. Build and Run All Services**
+docker compose up -d --build
 
----
+* This command will:
+* Build Angular frontend image
+* Build Spring Boot backend image
+* Pull MySQL image
+* Start all containers
+* Connect services using Docker network
 
-# Backend Setup
+**3. Check Running Containers**
 
-## 1. Clone Backend Repository
+docker ps
+**4. Stop the System**
+docker compose down
 
-```bash
-git clone <backend-repository-link>
-```
-
----
-
-## 2. Create Database in MySQL
-
-```sql
-CREATE DATABASE arl_db;
-```
-
----
-
-## 3. Configure application.properties
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/arl_db
-spring.datasource.username=root
-spring.datasource.password=YOUR_PASSWORD
-```
-
----
-
-## 4. Run Backend Server
-
-```bash
-mvn spring-boot:run
-```
-
-Backend runs at:
-
-```bash
-http://localhost:8080
-```
-
----
-
-# Frontend Setup
-
-## 1. Clone Frontend Repository
-
-```bash
-git clone <frontend-repository-link>
-```
-
----
-
-## 2. Install Dependencies
-
-```bash
-npm install
-```
-
----
-
-## 3. Run Angular Application
-
-```bash
-ng serve
-```
-
-Frontend runs at:
-
-```bash
-http://localhost:4200
-```
-
----
-
-# API Integration
-
-The Angular frontend communicates with the Spring Boot backend using Angular HttpClient.
-
-Example API endpoint:
-
-```typescript
+**Application Access**
+Once containers are running:
+📚 Frontend (Angular UI):
+http://localhost/books
+🔌 Backend API:
 http://localhost:8080/api/books
-```
+🗄️ MySQL Database:
+Runs internally inside Docker (not exposed)
 
-Implemented API operations:
+**API Integration**
+The Angular frontend communicates with Spring Boot backend via:
+http://localhost/api/books
 
-- GET → Retrieve books
-- POST → Add books
-- PUT → Update books
-- DELETE → Remove books
+**API Methods:**
+* GET → Retrieve books
+* POST → Add books
+* PUT → Update books
+* DELETE → Delete books
 
----
+**Docker Features Implemented**
+* Full microservices containerization
+* Docker Compose orchestration
+* Internal Docker network communication
+* Nginx reverse proxy for frontend routing
+* MySQL persistent volume storage
+* One-command deployment (docker compose up -d --build)
 
-# Authentication & Security
+**Useful Docker Commands**
+**Rebuild frontend only**
+docker compose up --build frontend-service
 
-Basic Authentication is implemented for protected operations:
+**Rebuild backend only**
+docker compose up --build backend-service
 
-- POST
-- PUT
-- DELETE
+**View logs**
+docker compose logs -f
 
-Public access is allowed for:
+**Clean restart system**
+docker compose down && docker compose up -d --build
 
-- GET requests
+**Features Implemented**
+* Full CRUD operations
+* Search & filtering
+* Pagination support
+* Form validation
+* REST API integration
+* Dockerized deployment
+* Nginx reverse proxy setup
+* MySQL persistence with volume
+* Fully isolated microservices architecture
 
-CORS configuration is enabled to allow Angular frontend access from:
+**Group Members**
+NUR FARISYA BINTI AHMAD SHUKRI	303383
+NUR JUWANA BINTI MOHD YUNUS	307864
+SITI NUR IRDINA BINTI AHMAD SUKARDI	307504
+ALIYYAH SAFIAH BINTI HAZLY	305604
+NUR SYATHIRAH BINTI MOHD FAIZATUL IZHAM	305766
 
-```bash
-http://localhost:4200
-```
+**How to Run Summary**
+1. Install Docker
+2. Clone project
+3. Run:
+docker compose up -d --build
+4. Open:
+http://localhost/books
 
----
-
-# Features Implemented
-
-- Book listing
-- Search functionality
-- Add book feature
-- Edit book feature
-- Delete book feature
-- Form validation
-- API error handling
-- Basic Authentication
-- Frontend & backend integration
-
----
-
-# Screenshots
-
-## Book List
-<img width="1920" height="1080" alt="Screenshot (54)" src="https://github.com/user-attachments/assets/5d6c8e3b-80cd-4511-a2ce-dd99a3a1b423" />
-
----
-
-## Search Function
-<img width="1920" height="1080" alt="Screenshot (55)" src="https://github.com/user-attachments/assets/90a418a2-3e12-41dc-80b8-0b850e95d4ee" />
-
----
-
-## Form Validation
-<img width="1920" height="1080" alt="Screenshot (56)" src="https://github.com/user-attachments/assets/9cb83f38-c53e-4f0b-94d3-3f9c8764a948" />
-
----
-
-# Demo Video
-
-Demo video link:
-https://youtu.be/SZfL9JkXZLs?si=Lo8Z-ZtcKJqUZn25
-
----
-
-# Group Members
-
-| Name | Matric Number |
-|------|------|
-| NUR FARISYA BINTI AHMAD SHUKRI | 303383 |
-| NUR JUWANA BINTI MOHD YUNUS | 307864 |
-| SITI NUR IRDINA BINTI AHMAD SUKARDI | 307504 |
-| ALIYYAH SAFIAH BINTI HAZLY | 305604 |
-| NUR SYATHIRAH BINTI MOHD FAIZATUL IZHAM | 305766 |
-
----
-
-# How to Run the Project
-
-1. Start MySQL server
-2. Run Spring Boot backend
-3. Run Angular frontend
-4. Open browser:
-
-```bash
-http://localhost:4200
-```
-
-5. Test:
-- View books
-- Search books
-- Add/edit/delete books
-
----
-
-# License
-
+**License**
 This project is developed for educational purposes under STIWK2124 Web Engineering.
-````
-=======
-# STIWK2124-A3-Final-Group5
->>>>>>> 24988f860f171d61c52cb5c9989937386bd9b0ac
