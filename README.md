@@ -189,7 +189,7 @@ docker compose version
 ## Step 1: Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/NurFarisya64/STIWK2124-A3-Final-Group5.git
 cd ARL-Library-Project
 ```
 
@@ -387,7 +387,7 @@ This project demonstrates:
 
 ```bash
 # Clone Repository
-git clone <repository-url>
+git clone https://github.com/NurFarisya64/STIWK2124-A3-Final-Group5.git
 
 # Enter Project Directory
 cd ARL-Library-Project
