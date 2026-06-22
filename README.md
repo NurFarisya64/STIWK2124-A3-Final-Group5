@@ -376,7 +376,7 @@ This project demonstrates:
 | Name                                    | Matric Number |
 | --------------------------------------- | ------------- |
 | NUR FARISYA BINTI AHMAD SHUKRI          | 303383        |
-| NUR JUWANA BINTI MOHD YUNUS             | 307864        |
+| NUR JUWANA BINTI MOHD YUNUS             | 307909        |
 | SITI NUR IRDINA BINTI AHMAD SUKARDI     | 307504        |
 | ALIYYAH SAFIAH BINTI HAZLY              | 305604        |
 | NUR SYATHIRAH BINTI MOHD FAIZATUL IZHAM | 305766        |
